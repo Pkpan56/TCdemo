@@ -36,13 +36,13 @@
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
-  <!-- <script src="js/vconsole.min.js"></script> -->
-  <!-- <script>
+  <script src="js/vconsole.min.js"></script>
+  <script>
     var vConsole = new VConsole()
     console.log("Hello World!")
-  </script> -->
+  </script>
 
-  <!-- <script src="https://static.line-scdn.net/liff/edge/versions/2.4.1/sdk.js"></script> -->
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.4.1/sdk.js"></script>
   <script>
     function createUniversalLink() {
     }
@@ -71,17 +71,24 @@
     function getContext() {
     }
 
-    async function getUserProfile() {
+    async function getUserProfile() {const profile = await liff.getprofiles()
+	documet.getElementbyId("pictureUrl").src=profile.pictureUrl
     }
 
-    function getEnvironment() {
+    function getEnvironment() {document.getElementById("os").append(liff.getos())
+	document.getElementById("language").append(liff.getLanguage())
+   document.getElementById("version").append(liff.getVersion())
+	document.getElementById("accessToken").append(liff.getAccesstoken())
+	document.getElementById("isInClient").append(liff.isInClient())
+	liff.isInClient
+							   
     }
 
     async function main() {
-      alert("LINE Developers x Skooldio")
-      await liff.init({ liffId: "YOUR-LIFF-ID" })
-      // getEnvironment()
-      // getUserProfile()
+         await liff.init({ liffId: "1655166822-GOVzrQ1d
+" })
+       getEnvironment()
+      getUserProfile()
       // getContext()
       // getFriendship()
       // createUniversalLink()
